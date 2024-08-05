@@ -174,7 +174,8 @@ void main(List<String> args) {
     ).listSync(root: argInput).whereType<File>().toList();
     if (argVerbose) {
       print(
-          "Considering files:\n${files.map((e) => "- ${e.path}").join("\n")}",);
+        "Considering files:\n${files.map((e) => "- ${e.path}").join("\n")}",
+      );
     }
 
     files.removeWhere((file) {
@@ -227,7 +228,8 @@ void main(List<String> args) {
           if (!containsPatterns(folderPath, argWhitelistedFolders)) {
             if (argVerbose) {
               print(
-                  "Skipping file $path in folder $folderPath because it's not whitelisted",);
+                "Skipping file $path in folder $folderPath because it's not whitelisted",
+              );
             }
             return true;
           }
@@ -244,7 +246,8 @@ void main(List<String> args) {
           if (containsPatterns(folderPath, argBlacklistedFolders)) {
             if (argVerbose) {
               print(
-                  "Skipping file $path in folder $folderPath because it's blacklisted",);
+                "Skipping file $path in folder $folderPath because it's blacklisted",
+              );
             }
             return true;
           }
@@ -261,7 +264,8 @@ void main(List<String> args) {
     ).listSync(root: argInput).whereType<Directory>().toList();
     if (argVerbose) {
       print(
-          "Considering folders:\n${folders.map((e) => "- ${e.path}").join("\n")}",);
+        "Considering folders:\n${folders.map((e) => "- ${e.path}").join("\n")}",
+      );
     }
     folders.sort((a, b) {
       return b.path

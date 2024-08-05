@@ -1,0 +1,36 @@
+##.title
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+##
+## Dart/Flutter (DF) Packages by DevCetra.com & contributors. ee MIT LICENSE
+## file in the root directory.
+##
+## ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+##.title~
+
+name: df_bulk_replace
+description: A command-line tool to perform bulk replacement of file names, folder names, and file contents within a specified directory.
+version: 0.1.0
+repository: https://github.com/robmllze/df_bulk_replace
+
+## -----------------------------------------------------------------------------
+
+environment:
+  sdk: ">=3.0.0 < 4.0.0"
+
+## -----------------------------------------------------------------------------
+
+dependencies:
+  args: ^2.5.0
+  path: ^1.9.0
+  glob: ^2.1.2
+  tuple: ^2.0.2
+
+## -----------------------------------------------------------------------------
+
+dev_dependencies:
+  lints: ^4.0.0
+
+## -----------------------------------------------------------------------------
+
+executables:
+  bulk_replace: df_bulk_replace

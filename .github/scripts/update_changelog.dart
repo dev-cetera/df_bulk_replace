@@ -1,8 +1,8 @@
 //.title
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //
-// Dart/Flutter (DF) Packages by DevCetra.com & contributors. See MIT LICENSE
-// file in the root directory.
+// Dart/Flutter (DF) Packages by DevCetra.com & contributors. See LICENSE file
+// in the root directory.
 //
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 //.title~
@@ -48,7 +48,7 @@ void main(List<String> args) {
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 Set<_VersionSection> extractSections(String contents) {
-  final headerPattern = RegExp(r'## \[\d+\.\d+\.\d+(\+\d+)?\]');
+  final headerPattern = RegExp(r'// \[\d+\.\d+\.\d+(\+\d+)?\]');
   final allVersionMatches = headerPattern.allMatches(contents).toList();
   final results = <_VersionSection>{};
   for (var i = 0; i < allVersionMatches.length; i++) {
@@ -123,6 +123,6 @@ class _VersionSection {
   @override
   String toString() {
     final updatesString = updates.map((update) => '- $update').join('\n');
-    return '## [$version]\n\n- Released @ ${releasedAt.month}/${releasedAt.year} (UTC)\n$updatesString\n';
+    return '// [$version]\n\n- Released @ ${releasedAt.month}/${releasedAt.year} (UTC)\n$updatesString\n';
   }
 }

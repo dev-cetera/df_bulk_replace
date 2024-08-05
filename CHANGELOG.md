@@ -4,7 +4,6 @@
 
 - Released @ 8/2024 (UTC)
 - docs: Update readme
-- refactor: Change default command from bulk_replace to bulkreplace
 
 ## [0.1.0]
 

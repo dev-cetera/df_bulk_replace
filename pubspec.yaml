@@ -35,3 +35,4 @@ dev_dependencies:
 executables:
   df_bulk_replace: df_bulk_replace
   bulk_replace: df_bulk_replace
+  bulkreplace: df_bulk_replace

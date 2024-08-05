@@ -33,25 +33,25 @@ dart pub global deactivate df_bulk_replace
 
 ```sh
 # Basic replacment.
-bulk_replace --input test --replace "foo" --with "bar"
-bulk_replace -i test -r "bar" -w "foo"
-bulk_replace -i test -r "replace_me" -w "vervang_my"
-bulk_replace -i test -r "vervang_my" -w "replace_me" # change back
-bulk_replace -i test -r "replace_me" -w "vervang_my" && bulk_replace -i test -r "vervang_my" -w "replace_me"
+bulkreplace --input test --replace "foo" --with "bar"
+bulkreplace -i test -r "bar" -w "foo"
+bulkreplace -i test -r "replace_me" -w "vervang_my"
+bulkreplace -i test -r "vervang_my" -w "replace_me" # change back
+bulkreplace -i test -r "replace_me" -w "vervang_my" && bulkreplace -i test -r "vervang_my" -w "replace_me"
 
 # Using handlebars.
-bulk_replace -i test -r "replace_me_(\\w)_(\\w)_(\\w)" -w "replace_me_{{2}}_{{1}}_{{0}}" --no-file-names --no-folder-names
+bulkreplace -i test -r "replace_me_(\\w)_(\\w)_(\\w)" -w "replace_me_{{2}}_{{1}}_{{0}}" --no-file-names --no-folder-names
 
 # Whitelisting or blacklisting files.
-bulk_replace -i test -r "foo" -w "bar" --blacklisted-files "blacklist_me_1.txt, blacklist_me_2.txt"
-bulk_replace -i test -r "foo" -w "bar" --whitelisted-files "whitelist_me_1.txt, whitelist_me_2.txt"
+bulkreplace -i test -r "foo" -w "bar" --blacklisted-files "blacklist_me_1.txt, blacklist_me_2.txt"
+bulkreplace -i test -r "foo" -w "bar" --whitelisted-files "whitelist_me_1.txt, whitelist_me_2.txt"
 
 # Whitelisting or blacklisting folders.
-bulk_replace -i test -r "foo" -w "bar" --blacklisted-folders "_blacklist_me" -v
-bulk_replace -i test -r "foo" -w "bar" --whitelisted-folders "_whitelist_me" -v
+bulkreplace -i test -r "foo" -w "bar" --blacklisted-folders "_blacklist_me" -v
+bulkreplace -i test -r "foo" -w "bar" --whitelisted-folders "_whitelist_me" -v
 
 # For those familiar with RegExp, you can use regular expressions and capture groups.
-bulk_replace --i . --replace "my_project_template(.*)" --with "hello_world{{1}}"
+bulkreplace --i . --replace "my_project_template(.*)" --with "hello_world{{1}}"
 ```
 
 ## Arguments

@@ -11,17 +11,23 @@ Dart & Flutter Packages by DevCetra.com & contributors.
 
 A command-line tool to perform bulk replacement of file names, folder names, and file contents within a specified directory.
 
- ## How It Works
+## How It Works
 
- 1. The script scans the specified directory recursively and finds all files and folders.
- 2. It replaces the occurrences of the `replace` pattern with the `with` pattern in the file contents, file names, and folder names.
- 3. The script supports using capture groups in the replacement pattern using double curly braces `{{}}`.
+1.  The script scans the specified directory recursively and finds all files and folders.
+2.  It replaces the occurrences of the `replace` pattern with the `with` pattern in the file contents, file names, and folder names.
+3.  The script supports using capture groups in the replacement pattern using double curly braces `{{}}`.
 
- ## Installing
+## Installing
 
- ```sh
- dart pub global activate df_bulk_replace
- ```
+```sh
+dart pub global activate df_bulk_replace
+```
+
+## Uninstalling
+
+```sh
+dart pub global deactivate df_bulk_replace
+```
 
 ## Usage Examples
 
@@ -29,8 +35,8 @@ A command-line tool to perform bulk replacement of file names, folder names, and
 # Basic replacment.
 bulk_replace --input test --replace "foo" --with "bar"
 bulk_replace -i test -r "bar" -w "foo"
-bulk_replace test -r "replace_me" -w "vervang_my"
-bulk_replace test -r "vervang_my" -w "replace_me"
+bulk_replace -i test -r "replace_me" -w "vervang_my"
+bulk_replace -i test -r "vervang_my" -w "replace_me" # change back
 bulk_replace -i test -r "replace_me" -w "vervang_my" && bulk_replace -i test -r "vervang_my" -w "replace_me"
 
 # Using handlebars.
@@ -48,7 +54,7 @@ bulk_replace -i test -r "foo" -w "bar" --whitelisted-folders "_whitelist_me" -v
 bulk_replace --i . --replace "my_project_template(.*)" --with "hello_world{{1}}"
 ```
 
- ## Arguments
+## Arguments
 
 Prints help: **-h** or **--help**
 

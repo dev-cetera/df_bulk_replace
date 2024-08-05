@@ -4,7 +4,6 @@
 
 - Released @ 8/2024 (UTC)
 - refactor: Change default command from bulk_replace to bulkreplace
-- refactor: Update changelog and prepare scripts
 
 ## [0.1.1]
 

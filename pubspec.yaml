@@ -12,7 +12,7 @@
 
 name: df_bulk_replace
 description: A command-line tool to perform bulk replacement of file names, folder names, and file contents within a specified directory.
-version: 0.1.4
+version: 0.1.5
 repository: https://github.com/robmllze/df_bulk_replace
 funding:
   - https://www.buymeacoffee.com/robmllze
@@ -39,7 +39,7 @@ dependencies:
 ## -----------------------------------------------------------------------------
 
 dev_dependencies:
-  lints: ^4.0.0
+  lints: ^5.0.0
 
 ## -----------------------------------------------------------------------------
 

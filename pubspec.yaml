@@ -16,7 +16,7 @@ repository: https://github.com/robmllze/df_bulk_replace
 funding:
   - https://www.buymeacoffee.com/dev_cetera
 description: A command-line tool to perform bulk replacement of file names, folder names, and file contents within a specified directory.
-version: 0.1.6
+version: 0.1.7
 topics:
   - cli
   - tool

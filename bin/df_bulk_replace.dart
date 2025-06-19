@@ -45,11 +45,7 @@ void main(List<String> args) {
         abbr: 'r',
         help: 'Specifies the regex pattern to replace',
       )
-      ..addOption(
-        'with',
-        abbr: 'w',
-        help: 'Specifies the replacement string',
-      )
+      ..addOption('with', abbr: 'w', help: 'Specifies the replacement string')
       ..addFlag(
         'verbose',
         abbr: 'v',
@@ -142,20 +138,30 @@ void main(List<String> args) {
     final argFileNames = argsResult['file-names'] as bool;
     final argFolderNames = argsResult['folder-names'] as bool;
     final argContent = argsResult['content'] as bool;
-    final argWhitelistedFiles = (argsResult['whitelisted-files'] as List).map((e) {
+    final argWhitelistedFiles = (argsResult['whitelisted-files'] as List).map((
+      e,
+    ) {
       return e.toString().toLowerCase();
     }).toList();
-    final argBlacklistedFiles = (argsResult['blacklisted-files'] as List).map((e) {
+    final argBlacklistedFiles = (argsResult['blacklisted-files'] as List).map((
+      e,
+    ) {
       return e.toString().toLowerCase();
     }).toList();
-    final argWhitelistedFolders = (argsResult['whitelisted-folders'] as List).map((e) {
-      return e.toString().toLowerCase();
-    }).toList();
-    final argBlacklistedFolders = (argsResult['blacklisted-folders'] as List).map((e) {
-      return e.toString().toLowerCase();
-    }).toList();
-    final argDefaultWhitelistedFiles = argsResult['default-whitelisted-files'] as bool;
-    final argDefaultBlacklistedFiles = argsResult['default-blacklisted-files'] as bool;
+    final argWhitelistedFolders = (argsResult['whitelisted-folders'] as List)
+        .map((e) {
+          return e.toString().toLowerCase();
+        })
+        .toList();
+    final argBlacklistedFolders = (argsResult['blacklisted-folders'] as List)
+        .map((e) {
+          return e.toString().toLowerCase();
+        })
+        .toList();
+    final argDefaultWhitelistedFiles =
+        argsResult['default-whitelisted-files'] as bool;
+    final argDefaultBlacklistedFiles =
+        argsResult['default-blacklisted-files'] as bool;
 
     // VALIDATE ARGUMENTS
     if (argInput == null || argReplace == null || argWith == null) {
@@ -220,7 +226,9 @@ void main(List<String> args) {
         final segments = p.split(path);
         final length = segments.length;
         if (length > 1) {
-          final folderPath = p.fromUri(segments.sublist(0, length - 1).join('/'));
+          final folderPath = p.fromUri(
+            segments.sublist(0, length - 1).join('/'),
+          );
           if (!containsPatterns(folderPath, argWhitelistedFolders)) {
             if (argVerbose) {
               print(
@@ -237,7 +245,9 @@ void main(List<String> args) {
         final segments = p.split(path);
         final length = segments.length;
         if (length > 1) {
-          final folderPath = p.fromUri(segments.sublist(0, length - 1).join('/'));
+          final folderPath = p.fromUri(
+            segments.sublist(0, length - 1).join('/'),
+          );
           if (containsPatterns(folderPath, argBlacklistedFolders)) {
             if (argVerbose) {
               print(
@@ -263,7 +273,10 @@ void main(List<String> args) {
       );
     }
     folders.sort((a, b) {
-      return b.path.split(p.separator).length.compareTo(a.path.split(p.separator).length);
+      return b.path
+          .split(p.separator)
+          .length
+          .compareTo(a.path.split(p.separator).length);
     });
 
     folders.removeWhere((folder) {
@@ -313,8 +326,9 @@ void main(List<String> args) {
       for (final file in files) {
         final path = file.path;
         final segments = p.split(path);
-        final before =
-            segments.length == 1 ? null : segments.sublist(0, segments.length - 1).join('/');
+        final before = segments.length == 1
+            ? null
+            : segments.sublist(0, segments.length - 1).join('/');
         final last = segments.last;
         final after = replaceWithPattern(last, argReplace, argWith);
         final result = [if (before != null) before, after].join('/');
@@ -332,8 +346,9 @@ void main(List<String> args) {
       for (final folder in folders) {
         final path = folder.path;
         final segments = p.split(path);
-        final before =
-            segments.length == 1 ? null : segments.sublist(0, segments.length - 1).join('/');
+        final before = segments.length == 1
+            ? null
+            : segments.sublist(0, segments.length - 1).join('/');
         final last = segments.last;
         final after = replaceWithPattern(last, argReplace, argWith);
         final result = [if (before != null) before, after].join('/');
@@ -368,11 +383,7 @@ void printHelp(ArgParser parser) {
 
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-String replaceWithPattern(
-  String input,
-  String argReplace,
-  String argWith,
-) {
+String replaceWithPattern(String input, String argReplace, String argWith) {
   try {
     final expression = RegExp(argReplace);
     // Replace all occurrences of the matched pattern with argWith
